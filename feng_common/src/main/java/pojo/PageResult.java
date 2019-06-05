@@ -11,6 +11,7 @@ public class PageResult<T> {
         this.rows = rows;
     }
 
+
     public long getTotal() {
         return total;
     }
