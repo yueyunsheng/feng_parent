@@ -1,4 +1,4 @@
-package pojo.util;
+package util;
 
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
@@ -52,13 +52,17 @@ public class IdWorker {
     // 数据标识id部分
     private final long datacenterId;
 
-    public IdWorker(int i){
+    public IdWorker(){
         this.datacenterId = getDatacenterId(maxDatacenterId);
         this.workerId = getMaxWorkerId(datacenterId, maxWorkerId);
     }
     /**
+     * @param workerId
+     *            工作机器ID
+     * @param datacenterId
+     *            序列号
      */
-    public IdWorker() {
+    public IdWorker(long workerId, long datacenterId) {
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
         }

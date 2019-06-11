@@ -1,6 +1,12 @@
 package com.feng.base.pojo;
 
-public class Label {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.io.Serializable;
+
+@Entity
+@Table(name="tb_label")
+public class Label implements Serializable {
 
     private String id;
     private String labelName;
@@ -56,4 +62,6 @@ public class Label {
     public void setRecommend(String recommend) {
         this.recommend = recommend;
     }
+
+
 }
