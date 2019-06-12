@@ -1,6 +1,7 @@
 package com.feng.base.pojo;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -8,12 +9,14 @@ import java.io.Serializable;
 @Table(name="tb_label")
 public class Label implements Serializable {
 
+    @Id
     private String id;
     private String labelName;
     private String state;
     private Long count;
     private Long fans;
     private String recommend;
+
 
     public String getId() {
         return id;
@@ -64,4 +67,15 @@ public class Label implements Serializable {
     }
 
 
+    @Override
+    public String toString() {
+        return "Label{" +
+                "id='" + id + '\'' +
+                ", labelName='" + labelName + '\'' +
+                ", state='" + state + '\'' +
+                ", count=" + count +
+                ", fans=" + fans +
+                ", recommend='" + recommend + '\'' +
+                '}';
+    }
 }

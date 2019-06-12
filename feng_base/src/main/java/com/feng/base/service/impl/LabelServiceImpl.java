@@ -3,21 +3,21 @@ package com.feng.base.service.impl;
 import com.feng.base.dao.LabelDao;
 import com.feng.base.pojo.Label;
 import com.feng.base.service.LabelService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import util.IdWorker;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 @Transactional
 public class LabelServiceImpl implements LabelService {
 
-    @Autowired
+    @Resource
     private LabelDao labelDao;
 
-    @Autowired
+    @Resource
     private IdWorker idWorker;
 
     @Override
@@ -33,6 +33,7 @@ public class LabelServiceImpl implements LabelService {
     @Override
     public void addLabel(Label label) {
         label.setId(idWorker.nextId()+"");
+        System.out.println(label.getId());
         labelDao.save(label);
     }
 

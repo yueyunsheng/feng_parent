@@ -2,19 +2,17 @@ package com.feng.base.controller;
 
 import com.feng.base.pojo.Label;
 import com.feng.base.service.LabelService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pojo.Result;
 import pojo.StatusCode;
+
+import javax.annotation.Resource;
+
 @RequestMapping("/label")
-@Controller
+@RestController
 public class UserController {
 
-    @Autowired
+    @Resource
     private LabelService labelService;
 
 
@@ -30,8 +28,9 @@ public class UserController {
                 labelService.findLabelById(id) );
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST )
     public Result addLabel(@RequestBody  Label label){
+        System.out.println(label);
         labelService.addLabel(label);
         return new Result(true,StatusCode.OK,"添加成功" );
     }
