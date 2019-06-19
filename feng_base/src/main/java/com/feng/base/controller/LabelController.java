@@ -2,15 +2,17 @@ package com.feng.base.controller;
 
 import com.feng.base.pojo.Label;
 import com.feng.base.service.LabelService;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import pojo.Result;
 import pojo.StatusCode;
 
 import javax.annotation.Resource;
 
+@CrossOrigin
 @RequestMapping("/label")
 @RestController
-public class UserController {
+public class LabelController {
 
     @Resource
     private LabelService labelService;
@@ -30,7 +32,6 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST )
     public Result addLabel(@RequestBody  Label label){
-        System.out.println(label);
         labelService.addLabel(label);
         return new Result(true,StatusCode.OK,"添加成功" );
     }
@@ -51,6 +52,16 @@ public class UserController {
     }
 
 
+    @RequestMapping(value = "/search",method = RequestMethod.POST)
+    public Result findSearch(@RequestBody Label label){
+        return new Result(true,StatusCode.OK,"查询成功",labelService.findSearch(label));
+    }
 
+    @RequestMapping(value = "/search/{page}/{size}",method = RequestMethod.POST)
+    public Result pageQuery(@RequestBody Label label,@PathVariable int page,@PathVariable int size){
+        Page<>
+        return new Result(true,StatusCode.OK,"查询成功",
+                labelService.pageQuery(label,page,size));
+    }
 
 }

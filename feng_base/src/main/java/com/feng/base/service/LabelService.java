@@ -18,4 +18,5 @@ public interface LabelService {
     void deleteLabelById(String id);
 
 
+    List<Label> findSearch(Label label);
 }
