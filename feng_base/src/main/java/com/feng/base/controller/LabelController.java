@@ -4,6 +4,7 @@ import com.feng.base.pojo.Label;
 import com.feng.base.service.LabelService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import pojo.PageResult;
 import pojo.Result;
 import pojo.StatusCode;
 
@@ -59,9 +60,9 @@ public class LabelController {
 
     @RequestMapping(value = "/search/{page}/{size}",method = RequestMethod.POST)
     public Result pageQuery(@RequestBody Label label,@PathVariable int page,@PathVariable int size){
-        Page<>
+        Page<Label> pageData = labelService.pageQuery(label,page,size);
         return new Result(true,StatusCode.OK,"查询成功",
-                labelService.pageQuery(label,page,size));
+                new PageResult<Label>(pageData.getTotalElements(),pageData.getContent()));
     }
 
 }

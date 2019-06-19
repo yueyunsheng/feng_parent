@@ -10,6 +10,7 @@
 
         <module>feng_base</module>
         <module>feng_common</module>
+        <module>feng_recruit</module>
     </modules>
     <packaging>pom</packaging>
 

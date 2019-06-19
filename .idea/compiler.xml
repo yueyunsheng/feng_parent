@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="feng_base" />
         <module name="feng_common" />
+        <module name="feng_recruit" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +21,7 @@
       <module name="feng_base" options="-parameters" />
       <module name="feng_common" options="-parameters" />
       <module name="feng_commons" options="-parameters" />
+      <module name="feng_recruit" options="-parameters" />
       <module name="fengbase" options="-parameters" />
     </option>
   </component>
