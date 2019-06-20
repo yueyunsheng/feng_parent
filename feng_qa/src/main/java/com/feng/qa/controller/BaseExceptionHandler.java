@@ -1,11 +1,12 @@
-package com.feng.recruit.controller;
-
+package com.feng.qa.controller;
+import entity.Result;
+import entity.StatusCode;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import pojo.Result;
-import pojo.StatusCode;
-
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 /**
  * 统一异常处理类
  */

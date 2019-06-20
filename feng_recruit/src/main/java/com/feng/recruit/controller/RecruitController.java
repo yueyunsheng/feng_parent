@@ -1,22 +1,16 @@
 package com.feng.recruit.controller;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.feng.recruit.pojo.Recruit;
 import com.feng.recruit.service.RecruitService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
+import pojo.PageResult;
+import pojo.Result;
+import pojo.StatusCode;
 
-import entity.PageResult;
-import entity.Result;
-import entity.StatusCode;
+import java.util.Map;
+
 /**
  * 控制器层
  * @author Administrator
@@ -29,8 +23,23 @@ public class RecruitController {
 
 	@Autowired
 	private RecruitService recruitService;
-	
-	
+
+
+	@RequestMapping(value = "/search/newlist",method = RequestMethod.GET)
+	public Result findTop6ByStateNotOrderByCreatetimeDESC(){
+
+		return new Result(true,StatusCode.OK,"查询最新职位成功",
+				recruitService.findTop6ByStateNotOrderByCreatetimeDESC("0"));
+	}
+
+
+	@RequestMapping(value = "/search/recommend",method = RequestMethod.GET)
+	public Result findTop6ByStateOrderByCreatetime(){
+        return new Result(true,StatusCode.OK,"查询推荐职位成功",recruitService.findTop6ByStateOrderByCreatetime("2"));
+	}
+
+
+
 	/**
 	 * 查询全部数据
 	 * @return
@@ -47,7 +56,7 @@ public class RecruitController {
 	 */
 	@RequestMapping(value="/{id}",method= RequestMethod.GET)
 	public Result findById(@PathVariable String id){
-		return new Result(true,StatusCode.OK,"查询成功",recruitService.findById(id));
+		return new Result(true, StatusCode.OK,"查询成功",recruitService.findById(id));
 	}
 
 
