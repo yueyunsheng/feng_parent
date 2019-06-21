@@ -1,28 +1,22 @@
 package com.feng.qa.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
-
+import com.feng.qa.dao.ProblemDao;
+import com.feng.qa.pojo.Problem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-
 import util.IdWorker;
 
-import com.feng.qa.dao.ProblemDao;
-import com.feng.qa.pojo.Problem;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 服务层
@@ -38,6 +32,36 @@ public class ProblemService {
 	
 	@Autowired
 	private IdWorker idWorker;
+
+	public Page<Problem> findNewProblemList(String labelid, int page,int size){
+		Pageable pageable1 = PageRequest.of(page,size);
+		return  problemDao.findNewProblemList(labelid,pageable1);
+	}
+
+
+	public Page<Problem> findHotProblemList(String labelid, int page,int size){
+
+		Pageable pageable = PageRequest.of(page,size);
+		return problemDao.findHotProblemList(labelid,pageable);
+	}
+
+	public Page<Problem> findWaitReplyList(String labelid, int page,int size){
+
+		Pageable pageable = PageRequest.of(page,size);
+		return problemDao.findWaitReplyList(labelid,pageable);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 	/**
 	 * 查询全部列表

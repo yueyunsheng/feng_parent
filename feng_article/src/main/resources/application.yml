@@ -1,11 +1,11 @@
 server: 
-  port: 9003
+  port: 9004
 spring: 
   application:  
-    name: feng-qa #指定服务名
+    name: feng-article #指定服务名
   datasource:  
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://172.16.40.131:3306/tensquare_qa?characterEncoding=UTF8
+    url: jdbc:mysql://172.16.40.131:3306/tensquare_article?characterEncoding=UTF8
     username: root
     password: root
   jpa: 

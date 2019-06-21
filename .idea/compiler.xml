@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="feng_article" />
         <module name="feng_base" />
         <module name="feng_common" />
         <module name="feng_qa" />
@@ -19,6 +20,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="feng_article" options="-parameters" />
       <module name="feng_base" options="-parameters" />
       <module name="feng_common" options="-parameters" />
       <module name="feng_commons" options="-parameters" />

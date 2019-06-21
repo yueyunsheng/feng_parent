@@ -12,6 +12,7 @@
         <module>feng_common</module>
         <module>feng_recruit</module>
         <module>feng_qa</module>
+        <module>feng_article</module>
     </modules>
     <packaging>pom</packaging>
 

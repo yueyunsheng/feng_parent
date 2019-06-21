@@ -1,4 +1,4 @@
-package com.feng.qa.controller;
+package com.feng.article.controller;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
