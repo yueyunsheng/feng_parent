@@ -13,6 +13,7 @@
         <module>feng_recruit</module>
         <module>feng_qa</module>
         <module>feng_article</module>
+        <module>feng_gathering</module>
     </modules>
     <packaging>pom</packaging>
 

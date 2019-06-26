@@ -9,6 +9,7 @@
         <module name="feng_article" />
         <module name="feng_base" />
         <module name="feng_common" />
+        <module name="feng_gathering" />
         <module name="feng_qa" />
         <module name="feng_recruit" />
       </profile>
@@ -24,6 +25,7 @@
       <module name="feng_base" options="-parameters" />
       <module name="feng_common" options="-parameters" />
       <module name="feng_commons" options="-parameters" />
+      <module name="feng_gathering" options="-parameters" />
       <module name="feng_qa" options="-parameters" />
       <module name="feng_recruit" options="-parameters" />
       <module name="fengbase" options="-parameters" />

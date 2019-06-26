@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import util.IdWorker;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -16,6 +18,7 @@ import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 服务层
@@ -24,6 +27,7 @@ import java.util.Map;
  *
  */
 @Service
+@Transactional
 public class ArticleService {
 
 	@Autowired
@@ -32,6 +36,8 @@ public class ArticleService {
 	@Autowired
 	private IdWorker idWorker;
 
+	@Autowired
+	private RedisTemplate redisTemplate;
 
 
 
@@ -84,7 +90,13 @@ public class ArticleService {
 	 * @return
 	 */
 	public Article findById(String id) {
-		return articleDao.findById(id).get();
+
+		Article article = (Article) redisTemplate.opsForValue().get("article_"+id);
+		if(article==null){
+			article = articleDao.findById(id).get();
+			redisTemplate.opsForValue().set("article_"+id,article,10, TimeUnit.SECONDS);
+		}
+		return article;
 	}
 
 	/**
@@ -101,6 +113,8 @@ public class ArticleService {
 	 * @param article
 	 */
 	public void update(Article article) {
+
+		redisTemplate.delete("article_"+article.getId());
 		articleDao.save(article);
 	}
 
@@ -109,6 +123,8 @@ public class ArticleService {
 	 * @param id
 	 */
 	public void deleteById(String id) {
+
+		redisTemplate.delete("article_"+id);
 		articleDao.deleteById(id);
 	}
 

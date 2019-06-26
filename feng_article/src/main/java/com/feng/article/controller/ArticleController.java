@@ -26,7 +26,7 @@ public class ArticleController {
 
 
 	@RequestMapping(value = "/examine/{articleId}",method = RequestMethod.PUT)
-	public Result updateReviewedState(String articleId){
+	public Result updateReviewedState(@PathVariable String articleId){
 		articleService.updateReviewedState(articleId);
 		return new Result(true, StatusCode.OK,"修改成功");
 	}

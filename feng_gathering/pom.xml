@@ -5,16 +5,12 @@
     <artifactId>feng_parent</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>feng_article</artifactId>
+  <artifactId>feng_gathering</artifactId>
   <dependencies>
  		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-	  <dependency>
-		  <groupId>org.springframework.boot</groupId>
-		  <artifactId>spring-boot-starter-data-redis</artifactId>
-	  </dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
