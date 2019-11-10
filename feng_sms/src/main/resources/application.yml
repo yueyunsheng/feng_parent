@@ -1,0 +1,7 @@
+server:
+  port: 9009
+spring:
+  rabbitmq:
+    host: 106.53.66.20
+  application:
+    name: feng-sms

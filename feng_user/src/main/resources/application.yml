@@ -1,0 +1,18 @@
+server: 
+  port: 9008
+spring: 
+  application:  
+    name: feng-user #指定服务名
+  datasource:  
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.53.66.20:3306/tensquare_user?characterEncoding=UTF8
+    username: root
+    password: 333555
+  jpa: 
+    database: MySQL
+    show-sql: true
+  redis:
+    host: 106.53.66.20
+
+  rabbitmq:
+    host: 106.53.66.20

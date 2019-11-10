@@ -1,0 +1,8 @@
+server:
+  port: 9007
+spring:
+  application:
+    name: feng_search
+  data:
+    elasticsearch:
+      cluster-nodes: 106.53.66.20:9300

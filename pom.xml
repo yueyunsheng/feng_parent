@@ -14,6 +14,10 @@
         <module>feng_qa</module>
         <module>feng_article</module>
         <module>feng_gathering</module>
+        <module>feng_search</module>
+        <module>frng_rabbitmq</module>
+        <module>feng_user</module>
+        <module>feng_sms</module>
     </modules>
     <packaging>pom</packaging>
 
