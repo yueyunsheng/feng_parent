@@ -9,8 +9,11 @@ import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Selection;
+import javax.servlet.http.HttpServletRequest;
 
+import io.jsonwebtoken.Claims;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,6 +28,7 @@ import util.IdWorker;
 
 import com.feng.user.dao.UserDao;
 import com.feng.user.pojo.User;
+import util.JwtUtil;
 
 /**
  * 服务层
@@ -51,6 +55,11 @@ public class UserService {
 	private BCryptPasswordEncoder encoder;
 
 
+	@Autowired
+	private JwtUtil jwtUtil;
+
+	@Autowired
+	private HttpServletRequest request;
 
 	public User login(User user){
 		User userLogin = userDao.findByMobile(user.getMobile());
@@ -125,7 +134,24 @@ public class UserService {
 	 * @param id
 	 */
 	public void deleteById(String id) {
+		String header = request.getHeader("Authorization");
+        if(StringUtils.isEmpty(header))
+        	throw new RuntimeException("验证失败！");
+        if(!header.startsWith("Bearor "))
+			throw new RuntimeException("验证失败！");
+        String token = header.substring(7);
+        try{
+			Claims claims = jwtUtil.parseJWT(token);
+			if(!"admin".equals(claims.get("roles")))
+				throw new RuntimeException("权限不足");
+
+		}catch (Exception e){
+			throw new RuntimeException("token验证失败！");
+		}
+
 		userDao.deleteById(id);
+
+
 	}
 
 	/**

@@ -1,5 +1,6 @@
 package com.feng.user.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import com.feng.user.service.AdminService;
 import pojo.PageResult;
 import pojo.Result;
 import pojo.StatusCode;
+import util.JwtUtil;
 
 /**
  * 控制器层
@@ -31,7 +33,8 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 
-
+	@Autowired
+    private JwtUtil jwtUtil;
 
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	public Result login(@RequestBody Admin admin){
@@ -40,7 +43,12 @@ public class AdminController {
 		if(adminLogin==null){
 			return new Result(false,StatusCode.LOGINERROR,"登录失败！");
 		}
-		return new Result(true,StatusCode.OK,"登录成功！");
+		//生成token
+		String token = jwtUtil.createJWT(adminLogin.getId(),admin.getLoginname(),"admin");
+		Map<String,Object> map = new HashMap<>();
+		map.put("token",token);
+		map.put("role","admin");
+		return new Result(true,StatusCode.OK,"登录成功！",map);
 	}
 
 	/**

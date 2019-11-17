@@ -1,6 +1,6 @@
 server: 
   port: 9008
-spring: 
+spring:
   application:  
     name: feng-user #指定服务名
   datasource:  
@@ -13,6 +13,11 @@ spring:
     show-sql: true
   redis:
     host: 106.53.66.20
-
   rabbitmq:
     host: 106.53.66.20
+jwt:
+  config:
+    key: feng
+    ttl: 3600000
+
+

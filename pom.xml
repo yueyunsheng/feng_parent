@@ -18,6 +18,7 @@
         <module>frng_rabbitmq</module>
         <module>feng_user</module>
         <module>feng_sms</module>
+        <module>feng_eureka</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -37,6 +38,17 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -61,7 +73,7 @@
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
+            <url>https://rep     o.spring.io/milestone</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
