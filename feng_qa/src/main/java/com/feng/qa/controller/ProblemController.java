@@ -1,5 +1,6 @@
 package com.feng.qa.controller;
 
+import com.feng.qa.client.LabelClient;
 import com.feng.qa.pojo.Problem;
 import com.feng.qa.service.ProblemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class ProblemController {
 	@Autowired
 	private ProblemService problemService;
 
+	@Autowired
+	private LabelClient labelClient;
 
 	@RequestMapping(value = "/newlist/{labelid}/{page}/{size}",method = RequestMethod.GET)
 	public Result findNewProblemList(@PathVariable String labelid, @PathVariable int page,@PathVariable int size){
@@ -119,5 +122,12 @@ public class ProblemController {
 		problemService.deleteById(id);
 		return new Result(true,StatusCode.OK,"删除成功");
 	}
-	
+
+
+	@RequestMapping(value = "/label/{id}",method = RequestMethod.GET)
+	public Result findLabelById(@PathVariable("id") String id){
+		Result result = labelClient.findLabelById(id);
+           return result;
+	}
+
 }

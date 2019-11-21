@@ -1,6 +1,9 @@
 package pojo;
 
-public class Result {
+import java.io.Serializable;
+
+public class Result{
+
 
     private boolean flag; //是否成功
     private int code;  //返回码
@@ -52,6 +55,15 @@ public class Result {
     }
 
     public void setData(Object data) {
+        this.data = data;
+    }
+
+
+    public Result() {
+        super();
+        this.flag = flag;
+        this.code = code;
+        this.message = message;
         this.data = data;
     }
 }

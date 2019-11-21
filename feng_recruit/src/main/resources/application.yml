@@ -5,9 +5,18 @@ spring:
     name: feng-recruit #指定服务名
   datasource:  
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://172.16.40.131:3306/tensquare_recruit?characterEncoding=UTF8
+    url: jdbc:mysql://106.53.66.20:3306/tensquare_recruit?characterEncoding=UTF8
     username: root
     password: root
   jpa: 
     database: MySQL
     show-sql: true
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone:http: //127.0.0.1:6868/eureka/
+  instance:
+    prefer-ip-address: true
+

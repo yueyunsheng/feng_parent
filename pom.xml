@@ -19,6 +19,7 @@
         <module>feng_user</module>
         <module>feng_sms</module>
         <module>feng_eureka</module>
+        <module>feng_friend</module>
     </modules>
     <packaging>pom</packaging>
 
