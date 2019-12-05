@@ -13,6 +13,12 @@ spring:
     show-sql: true
   redis:
     host: 106.53.66.20
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 30
+        min-idle: 10
+        max-wait: 10000
   rabbitmq:
     host: 106.53.66.20
 jwt:
@@ -21,10 +27,8 @@ jwt:
     ttl: 3600000
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
     service-url:
-      defaultZone:http: //127.0.0.1:6868/eureka/
+      defaultZone: http://127.0.0.1:6868/eureka/
   instance:
     prefer-ip-address: true
 

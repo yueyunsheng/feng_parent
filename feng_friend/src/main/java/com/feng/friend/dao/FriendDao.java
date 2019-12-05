@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+
 public interface FriendDao extends JpaRepository<Friend,String> {
 
 
@@ -14,11 +15,11 @@ public interface FriendDao extends JpaRepository<Friend,String> {
      * @param friendId
      * @return
      */
-    @Query("select count(f) from  Friend  f where f.friendId=?1 and f.userId=?2")
+    @Query("select count(f) from  Friend  f where f.friendid=?2 and f.userid=?1")
     public int selectCount(String userId,String friendId);
 
     @Modifying
     @Query("update Friend f set f.islike=?3 where f.userid=?1 and f.friendid=?2")
-    void updateLike(String userId,String friendId,String isLike);
+    public void updateLike(String userId,String friendId,String islike);
 
 }

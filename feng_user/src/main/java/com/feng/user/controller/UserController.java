@@ -1,5 +1,6 @@
 package com.feng.user.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -18,6 +19,7 @@ import com.feng.user.service.UserService;
 import pojo.PageResult;
 import pojo.Result;
 import pojo.StatusCode;
+import util.JwtUtil;
 
 /**
  * 控制器层
@@ -35,13 +37,20 @@ public class UserController {
 	@Autowired
 	private RedisTemplate redisTemplate;
 
+	@Autowired
+	private JwtUtil jwtUtil;
 
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	public Result login(@RequestBody User user){
 		User userLogin = userService.login(user);
 		if(userLogin==null)
 			return new Result(false,StatusCode.LOGINERROR,"登录失败");
-		return new Result(true,StatusCode.OK,"登录成功!");
+		String token = jwtUtil.createJWT(userLogin.getId(),userLogin.getNickname(),"user");
+		Map<String,Object> map = new HashMap<>();
+		map.put("token",token);
+		map.put("role","user");
+		return new Result(true,StatusCode.OK,"登录成功！",map);
+
 	}
 
 	/**

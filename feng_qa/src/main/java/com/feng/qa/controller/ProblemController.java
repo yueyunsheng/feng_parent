@@ -4,12 +4,14 @@ import com.feng.qa.client.LabelClient;
 import com.feng.qa.pojo.Problem;
 import com.feng.qa.service.ProblemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import pojo.PageResult;
 import pojo.Result;
 import pojo.StatusCode;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
 /**
@@ -25,7 +27,8 @@ public class ProblemController {
 	@Autowired
 	private ProblemService problemService;
 
-	@Autowired
+
+	@Resource
 	private LabelClient labelClient;
 
 	@RequestMapping(value = "/newlist/{labelid}/{page}/{size}",method = RequestMethod.GET)
@@ -123,7 +126,11 @@ public class ProblemController {
 		return new Result(true,StatusCode.OK,"删除成功");
 	}
 
-
+	/**
+	 * 根绝
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value = "/label/{id}",method = RequestMethod.GET)
 	public Result findLabelById(@PathVariable("id") String id){
 		Result result = labelClient.findLabelById(id);

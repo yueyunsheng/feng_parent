@@ -11,27 +11,35 @@ import java.io.Serializable;
 public class Friend implements Serializable {
 
     @Id
-    private  String friendId;
+    private  String friendid;
 
     @Id
-    private String userId;
+    private String userid;
 
-    public String getFriendId() {
-        return friendId;
+    private String islike;
+
+
+    public String getFriendid() {
+        return friendid;
     }
 
-    public void setFriendId(String friendId) {
-        this.friendId = friendId;
+    public void setFriendid(String friendid) {
+        this.friendid = friendid;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserid() {
+        return userid;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
+    public String getIslike() {
+        return islike;
+    }
 
-
+    public void setIslike(String islike) {
+        this.islike = islike;
+    }
 }
