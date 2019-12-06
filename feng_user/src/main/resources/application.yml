@@ -13,6 +13,12 @@ spring:
     show-sql: true
   redis:
     host: 106.53.66.20
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 30
+        min-idle: 10
+        max-wait: 10000
   rabbitmq:
     host: 106.53.66.20
 jwt:

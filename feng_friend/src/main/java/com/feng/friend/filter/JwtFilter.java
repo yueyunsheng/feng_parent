@@ -12,8 +12,9 @@ public class JwtFilter extends HandlerInterceptorAdapter {
 
     @Autowired
     private JwtUtil jwtUtil;
-
-    public boolean preHandler(HttpServletRequest request,
+    
+    @Override
+    public boolean preHandle(HttpServletRequest request,
                               HttpServletResponse response,Object handler) throws  Exception{
 
         final String authHeader = request.getHeader("Authorization");
@@ -22,6 +23,7 @@ public class JwtFilter extends HandlerInterceptorAdapter {
             final String token = authHeader.substring(7);
 
             Claims claims = jwtUtil.parseJWT(token);
+            System.out.println(claims.get("roles"));
             if (claims != null) {
 
                 if ("admin".equals(claims.get("roles"))) {
