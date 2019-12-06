@@ -6,18 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="feng_article" />
-        <module name="feng_base" />
-        <module name="feng_common" />
-        <module name="feng_eureka" />
-        <module name="feng_friend" />
-        <module name="feng_gathering" />
-        <module name="feng_qa" />
-        <module name="feng_recruit" />
-        <module name="feng_search" />
-        <module name="feng_sms" />
-        <module name="feng_user" />
+        <module name="feng_test" />
         <module name="frng_rabbitmq" />
+        <module name="feng_sms" />
+        <module name="feng_qa" />
+        <module name="feng_base" />
+        <module name="feng_search" />
+        <module name="feng_article" />
+        <module name="feng_gathering" />
+        <module name="feng_common" />
+        <module name="feng_user" />
+        <module name="feng_recruit" />
+        <module name="feng_eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,12 +32,12 @@
       <module name="feng_common" options="-parameters" />
       <module name="feng_commons" options="-parameters" />
       <module name="feng_eureka" options="-parameters" />
-      <module name="feng_friend" options="-parameters" />
       <module name="feng_gathering" options="-parameters" />
       <module name="feng_qa" options="-parameters" />
       <module name="feng_recruit" options="-parameters" />
       <module name="feng_search" options="-parameters" />
       <module name="feng_sms" options="-parameters" />
+      <module name="feng_test" options="-parameters" />
       <module name="feng_user" options="-parameters" />
       <module name="fengbase" options="-parameters" />
       <module name="frng_rabbitmq" options="-parameters" />

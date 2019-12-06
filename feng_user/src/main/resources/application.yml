@@ -21,10 +21,9 @@ jwt:
     ttl: 3600000
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
     service-url:
-      defaultZone:http: //127.0.0.1:6868/eureka/
+      defaultZone: http://127.0.0.1:6868/eureka/
   instance:
     prefer-ip-address: true
+
 

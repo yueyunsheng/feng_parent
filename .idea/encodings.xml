@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+  <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feng_article" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feng_base" charset="UTF-8" />
@@ -12,6 +12,7 @@
     <file url="file://$PROJECT_DIR$/feng_recruit" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feng_search" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feng_sms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/feng_test" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feng_user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/frng_rabbitmq" charset="UTF-8" />
   </component>
