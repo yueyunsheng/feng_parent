@@ -12,7 +12,7 @@ public class JwtFilter extends HandlerInterceptorAdapter {
 
     @Autowired
     private JwtUtil jwtUtil;
-
+    
     @Override
     public boolean preHandle(HttpServletRequest request,
                               HttpServletResponse response,Object handler) throws  Exception{

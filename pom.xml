@@ -20,6 +20,8 @@
         <module>feng_sms</module>
         <module>feng_eureka</module>
         <module>feng_friend</module>
+        <module>feng_manager</module>
+        <module>feng_web</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -60,6 +62,9 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-zuul -->
+
+
     </dependencies>
 
     <repositories>
