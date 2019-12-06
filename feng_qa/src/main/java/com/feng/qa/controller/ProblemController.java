@@ -28,7 +28,7 @@ public class ProblemController {
 	private ProblemService problemService;
 
 
-	@Resource
+	@Autowired
 	private LabelClient labelClient;
 
 	@RequestMapping(value = "/newlist/{labelid}/{page}/{size}",method = RequestMethod.GET)
