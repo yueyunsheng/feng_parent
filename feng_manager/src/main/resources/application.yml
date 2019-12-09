@@ -23,3 +23,9 @@ zuul:
     feng-gathering:
       path: /gathering/**
       serviceId: feng-gathering
+    feng-qa:
+      path: /qa/**
+      serviceId: feng-qa
+    feng-recruit:
+      path: /recruit/**
+      serviceId: feng-recruit

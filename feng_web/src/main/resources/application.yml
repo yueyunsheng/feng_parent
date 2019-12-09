@@ -3,3 +3,29 @@ server:
 spring:
   application:
     name: feng-web
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka/
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    feng-article:
+      path: /article/**       #文章
+      serviceId: feng-article
+    feng-base:
+      path: /base/**
+      serviceId: feng-base
+    feng-friend:
+      path: /friend/**
+      serviceId: feng-friend
+    feng-gathering:
+      path: /gathering/**
+      serviceId: feng-gathering
+    feng-qa:
+      path: /qa/**
+      serviceId: feng-qa
+    feng-recruit:
+      path: /recruit/**
+      serviceId: feng-recruit

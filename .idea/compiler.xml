@@ -6,20 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="feng_article" />
+        <module name="frng_rabbitmq" />
+        <module name="feng_user" />
+        <module name="feng_sms" />
+        <module name="feng_eureka" />
+        <module name="feng_qa" />
+        <module name="feng_friend" />
         <module name="feng_base" />
         <module name="feng_common" />
-        <module name="feng_eureka" />
-        <module name="feng_friend" />
-        <module name="feng_gathering" />
-        <module name="feng_manager" />
-        <module name="feng_qa" />
-        <module name="feng_recruit" />
-        <module name="feng_search" />
-        <module name="feng_sms" />
-        <module name="feng_user" />
         <module name="feng_web" />
-        <module name="frng_rabbitmq" />
+        <module name="feng_gathering" />
+        <module name="feng_search" />
+        <module name="feng_manager" />
+        <module name="feng_article" />
+        <module name="feng_recruit" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

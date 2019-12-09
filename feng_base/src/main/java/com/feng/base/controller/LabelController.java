@@ -2,6 +2,7 @@ package com.feng.base.controller;
 
 import com.feng.base.pojo.Label;
 import com.feng.base.service.LabelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import pojo.PageResult;
@@ -9,6 +10,7 @@ import pojo.Result;
 import pojo.StatusCode;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 @CrossOrigin
 @RequestMapping("/label")
@@ -18,9 +20,13 @@ public class LabelController {
     @Resource
     private LabelService labelService;
 
+    @Autowired
+    private HttpServletRequest request;
+
 
     @RequestMapping(method = RequestMethod.GET)
     public Result findAll(){
+        System.out.println(request.getHeader("Authorization"));
           return new Result(true, StatusCode.OK,"查询成功",
                   labelService.findLabelList()  );
     }
