@@ -22,6 +22,7 @@
         <module>feng_friend</module>
         <module>feng_manager</module>
         <module>feng_web</module>
+        <module>feng_config</module>
     </modules>
     <packaging>pom</packaging>
 

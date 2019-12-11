@@ -29,3 +29,10 @@ zuul:
     feng-recruit:
       path: /recruit/**
       serviceId: feng-recruit
+    feng-user:
+      path: /user/**
+      serviceId: feng-user
+jwt:
+  config:
+    key: feng
+    ttl: 3600000
