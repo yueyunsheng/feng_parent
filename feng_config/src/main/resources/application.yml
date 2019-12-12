@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: feng-config
+  cloud:
+    config:
+      server:
+       git:
+         uri: https://gitee.com/feng_next/feng_config.git
+         password: 333555ab
+         username: feng_next
+  rabbitmq:
+    host: 106.53.66.20
+server:
+  port: 12000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
